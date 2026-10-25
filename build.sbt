@@ -113,8 +113,8 @@ def javaMod(spec: (String, String, String)): ModuleID = spec match {
 val asTest: ModuleID => ModuleID     = _ % Test
 val asProvided: ModuleID => ModuleID = _ % Provided
 
-val scalaTestMod: ((String, String, String)) => ModuleID = (scalaMod _) andThen asTest
-val javaTestMod: ((String, String, String)) => ModuleID  = (javaMod _) andThen asTest
+val scalaTestMod: ((String, String, String)) => ModuleID = scalaMod andThen asTest
+val javaTestMod: ((String, String, String)) => ModuleID  = javaMod andThen asTest
 
 def mods(f: ((String, String, String)) => ModuleID)(specs: (String, String, String)*): Seq[ModuleID] = specs.map(f)
 

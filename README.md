@@ -1,0 +1,2 @@
+# squarz
+small board game
